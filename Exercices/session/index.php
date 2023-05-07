@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +48,5 @@ if (isset($_POST["login"])) {
     else{
         echo "Il y a un soucis avec votre identifiant et/ou votre mot de passe, merci de bien vouloir réssayer.";
     }
-
-
 }
 ?>
