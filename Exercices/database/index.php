@@ -1,17 +1,19 @@
 <?php
     include("database.php");
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Hello
-    
-</body>
-</html>
+    $username = "evamafemme";
+    $mdp = "bonjkour";
+    $hash = password_hash($mdp, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
+
+    try{
+        mysqli_query($conn, $sql);
+        echo "L'utilisateur {$username} est enregistré. <br>";
+    }
+    catch(mysqli_sql_exception){
+        echo "Erreur lors de l'insert d'utilisateur. <br>";
+
+    }
+    mysqli_close($conn);
+?>
